@@ -65,6 +65,9 @@ input {
       border: 1px solid #000;
       background: #FFF;
       font-size: 25px;
+      appearance: none;
+      overflow: hidden;
+      background: url('../../img/arrow.svg') no-repeat 95% 60%;
    }
 }
 .title {
@@ -125,6 +128,7 @@ input {
       width: 100%;
       text-align: center;
       text-shadow: 0 0 7px #000;
+      -webkit-text-stroke: 0.5px #000;
       position: absolute;
       top: 22px;
       left: 50%;
@@ -134,6 +138,7 @@ input {
       width: 100%;
       text-align: center;
       text-shadow: 0 0 7px #000;
+      -webkit-text-stroke: 0.5px #000;
       position: absolute;
       bottom: 30px;
       left: 50%;

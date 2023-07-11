@@ -27,7 +27,8 @@ export class View {
 
    renderPicture = (url) => {
       // console.log('view.renderPicture');
-
+      // this.memPicture.style.width = '100%'
+      // this.memPicture.style.height = '100%'
       this.memPicture.setAttribute('src', `${url}`)
    }
 
