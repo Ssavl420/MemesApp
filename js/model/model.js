@@ -1,6 +1,6 @@
 export class Model {
    constructor({ onMemChanged, onSelectInit, onTextChanged }) {
-      this.names = [];
+      this.namesOfMem = [];
       this.text = {};
       this.isError = false;
       this.onMemChanged = onMemChanged;
@@ -11,7 +11,7 @@ export class Model {
    searchMem(nameMem) {
       // console.log('model.searchMem')
       
-      const arr = this.names;
+      const arr = this.namesOfMem;
       let url = null;
 
       arr.data.memes.forEach(element => {
@@ -26,8 +26,11 @@ export class Model {
 
    createText(textTop, textBottom) {
       // console.log('model.createText')
+
+      this.isError = false;
       
-      if (this._isPostValid(textTop, textBottom)) {
+      if (this._isTextValid(textTop, textBottom)) {
+
          this.text = ({
             textTop,
             textBottom,
@@ -40,30 +43,24 @@ export class Model {
       this.onTextChanged(this.text, this.isError);
    }
 
-   // getPosts() {
-      // console.log('model.getPosts')
+   createMemArr(namesOfMem) {
+      // console.log('model.createMemArr')
 
-   //    return this.posts;
-   // }
-
-   setPosts(names) {
-      // console.log('model.setPosts')
-
-      this.names = names;
-      const pictureArr = []
-      names.data.memes.forEach(element => {
+      this.namesOfMem = namesOfMem;
+      const memArr = []
+      namesOfMem.data.memes.forEach(element => {
          const name = element.name;
-         pictureArr.push({
+         memArr.push({
             name
          })
       });
 
-      this.onSelectInit(pictureArr, this.isError);
+      this.onSelectInit(memArr, this.isError);
    }
 
-   _isPostValid(textTop, textBottom) {
-      // console.log('model._isPostValid')
+   _isTextValid(textTop, textBottom) {
+      // console.log('model._isTextValid')
 
-      return textTop.length <= 25 && textBottom.length <= 25; 
+      return textTop.length <= 30 && textBottom.length <= 30; 
    }
 }

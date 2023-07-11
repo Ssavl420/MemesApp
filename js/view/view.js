@@ -16,10 +16,10 @@ export class View {
       this.onNewText = onNewText;
    }
 
-   renderOptionsOfSelect(pictureArr) {
+   renderOptionsOfSelect(memArr) {
       // console.log('view.renderOptionsOfSelect');
 
-      pictureArr.forEach(element => {
+      memArr.forEach(element => {
          this.memSelectNode.innerHTML +=
          `<option>${element.name}</option>`
       });
@@ -34,7 +34,11 @@ export class View {
    renderText = (text, isError) => {
       // console.log('view.renderText')
 
-      if (isError) this.errorNode.innerHTML = 'Ошибка ВВОДА';
+      if (isError) {
+         this.errorNode.style.display = 'block';
+         this.errorNode.innerHTML = 'Ошибка ВВОДА <br> Не более 30 символов';}
+      if (!isError) {
+         this.errorNode.style.display = 'none'}
 
       this.memTextTop.innerHTML = text.textTop;
       this.memTextBottom.innerHTML = text.textBottom;

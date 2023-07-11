@@ -25,14 +25,14 @@ export class Controller {
          .then(pictures => {
             if (pictures.success !== true) return;
 
-            this.model.setPosts(pictures)
+            this.model.createMemArr(pictures)
          })
    }
 
-   handleModelSelectInit = (pictureArr) => {
+   handleModelSelectInit = (memArr) => {
       // console.log('controller.handleModelSelectInit')
 
-      this.view.renderOptionsOfSelect(pictureArr);
+      this.view.renderOptionsOfSelect(memArr);
    }
 
    handleModelMemChanged = (url) => {
@@ -43,7 +43,7 @@ export class Controller {
 
    handleModelTextChanged = (text, isError) => {
       // console.log('controller.handleModelTextChanged')
-
+      
       this.view.renderText(text, isError);
    }
 
