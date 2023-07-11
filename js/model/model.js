@@ -11,10 +11,10 @@ export class Model {
    searchMem(nameMem) {
       // console.log('model.searchMem')
       
-      const arr = this.namesOfMem;
+      const memes = this.namesOfMem;
       let url = null;
 
-      arr.data.memes.forEach(element => {
+      memes.data.memes.forEach(element => {
          if (element.name === nameMem) {
             url = element.url; 
          }
@@ -36,7 +36,7 @@ export class Model {
             textBottom,
          });
       } else {
-         console.error('Error')
+         console.error('!Valid')
          this.isError = true;
       }
 
